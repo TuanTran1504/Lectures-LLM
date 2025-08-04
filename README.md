@@ -53,15 +53,18 @@ project/
 
 1. Clone the repo:
    ```bash
-   git clone https://github.com/yourusername/transcript-rag.git
-   cd transcript-rag
+   git clone https://github.com/TuanTran1504/Lectures-LLM
+   cd Lectures-LLM
    ```
 
 2. Start the stack:
    ```bash
    docker compose up --build
    ```
-
+3. Pull model:
+   ```bash
+   docker exec -it ollama ollama pull llama3 
+   ```
 3. Access the web app:
    ```
    http://localhost:5000
@@ -72,7 +75,7 @@ project/
 Before starting, make sure to pull the required model:
 
 ```bash
-docker exec -it ollama-cpu ollama pull llama3:latest
+docker exec -it ollama ollama pull llama3
 ```
 
 ---
@@ -80,7 +83,8 @@ docker exec -it ollama-cpu ollama pull llama3:latest
 ## 📄 Upload & Ask Flow
 
 1. Go to the upload page (`/`)
-2. Upload a `.txt`, `.pdf`, `.mp3`, or `.mp4` file and select a lecture week
+2. Upload a `.txt`, `.pdf`, `.mp3`, or `.mp4` file and select a lecture week (mp3 and mp4 is not currently supported)
+3. Embedding model will create the embedding for each chunk and an LLM will create a topic for each chunk which help with the retrival
 3. After processing, you're redirected to the `/ask` page
 4. Ask questions, and get context-aware answers based on the transcript
 
@@ -88,7 +92,7 @@ docker exec -it ollama-cpu ollama pull llama3:latest
 
 ## 🧠 Models
 
-- **LLM**: `llama3:latest` via [Ollama](https://ollama.com)
+- **LLM**: `llama3` via [Ollama](https://ollama.com)
 - **Embedding Model**: `nomic-embed-text` or `sentence-transformers/all-MiniLM-L6-v2`
 - **Chunking**: NLTK-based sentence tokenizer + semantic similarity
 
@@ -99,10 +103,10 @@ docker exec -it ollama-cpu ollama pull llama3:latest
 These can be defined in `docker-compose.yml`:
 
 ```yaml
-POSTGRES_DB=memmory_agent
-POSTGRES_USER=postgres
-POSTGRES_PASSWORD=150402
-POSTGRES_HOST=postgres
+POSTGRES_DB="YOUR DB NAME"
+POSTGRES_USER="YOUR DB USER"
+POSTGRES_PASSWORD="YOUR PASSWORD"
+POSTGRES_HOST="postgres"
 POSTGRES_PORT=5432
 OLLAMA_NO_CUDA=1
 ```
@@ -113,19 +117,12 @@ OLLAMA_NO_CUDA=1
 
 - Use `OLLAMA_NO_CUDA=1` to disable GPU in Ollama
 - Mount a volume like `./uploads:/app/uploads` to persist uploaded files
+- PG database will have one table to store conversations and one to store lectures chunks
 - All logs (Flask + PostgreSQL) will appear in your Docker terminal for easy debugging
 
 ---
 
-## 📦 TODOs
-
-- [ ] Add authentication
-- [ ] Add transcript summarization
-- [ ] Add search and history features for questions
-- [ ] Optional support for Whisper for mp3/mp4 transcription
-
----
 
 ## 📄 License
 
-MIT License © 2025 [Your Name or Org]
+MIT License © 2025 Dinh Tuan Tran

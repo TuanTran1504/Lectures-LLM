@@ -24,9 +24,9 @@ services:
       - postgres
     environment:
       - OLLAMA_API_URL=http://ollama:11434
-      - POSTGRES_DB=memmory_agent
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=150402
+      - POSTGRES_DB="YOUR DB NAME"
+      - POSTGRES_USER="YOUR USER"
+      - POSTGRES_PASSWORD="YOUR PASSWORD"
       - POSTGRES_HOST=postgres
       - POSTGRES_PORT=5432
     volumes:
