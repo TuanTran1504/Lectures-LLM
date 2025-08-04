@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ask About Lecture</title>
+</head>
+<body>
+    <h2>Ask a Question</h2>
+    <form method="POST">
+        <label>Your Question:</label><br>
+        <textarea name="question" rows="4" cols="50">{{ question or '' }}</textarea><br><br>
+        <input type="submit" value="Ask">
+    </form>
+
+    {% if answer %}
+        <h3>Answer:</h3>
+        <p>{{ answer }}</p>
+    {% endif %}
+</body>
+</html>

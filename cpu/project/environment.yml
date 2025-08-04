@@ -1,0 +1,30 @@
+name: rag-env
+channels:
+  - conda-forge
+dependencies:
+  - python=3.10
+  - numpy
+  - pandas
+  - pip
+  - pip:
+      - flask
+      - langchain
+      - langgraph
+      - langchain-community
+      - huggingface-hub
+      - transformers
+      - sentence-transformers
+      - typing-extensions
+      - langchain-huggingface
+      - langchain-ollama
+      - langchain-tavily
+      - jq
+      - python-dotenv
+      - psycopg[binary]
+      - chromadb
+      - requests
+      - psycopg2-binary
+      - pymupdf
+      - sentence-transformers
+      - nltk
+      

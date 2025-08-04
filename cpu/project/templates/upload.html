@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+<head>
+    <title>Upload Lecture</title>
+</head>
+<body>
+    <h2>Upload Lecture</h2>
+
+    <!-- Upload form -->
+    <form method="POST" action="/upload" enctype="multipart/form-data">
+        <label>Week:</label><br>
+        <input type="number" name="week" required><br><br>
+
+        <label>Lecture File (.mp3, .mp4, .txt):</label><br>
+        <input type="file" name="file" accept=".mp3,.mp4,.txt" required><br><br>
+
+        <button type="submit">Upload</button>
+    </form>
+
+    <hr>
+
+    <!-- Redirect to /ask form -->
+    <form method="GET" action="/ask">
+        <button type="submit">Go to Ask Page</button>
+    </form>
+</body>
+</html>
