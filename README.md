@@ -1,4 +1,4 @@
-# 🎓 Transcript-RAG: Lecture Question Answering System
+# 🎓 Transcript-RAG: A Local Lecture Question Answering System
 
 This project enables students to upload lecture recordings or transcripts and ask questions based on the content. It leverages a Retrieval-Augmented Generation (RAG) pipeline powered by LLMs (via Ollama), PostgreSQL, and ChromaDB for document retrieval and semantic chunking.
 
